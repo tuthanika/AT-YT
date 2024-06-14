@@ -12,8 +12,8 @@ env:
     GH_TOKEN: ${{ github.token }}
 jobs:
   build1:
-    name: 'Buid arm64 root'
-    if: github.repository == 'Zenlua/AT-YT' && github.ref == 'refs/heads/Vip'
+    name: 'Buid arm root'
+    if: github.repository == 'tuthanika/AT-YT' && github.ref == 'refs/heads/Vip'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
         run: |
           # kakathic
           if [ -z "$VERSION" ];then
-          DEVICE='arm64-v8a'
+          DEVICE='armeabi-v7a'
           DEV='Stable'
           VERSION='Autu'
           TYPE='true'
@@ -48,8 +48,8 @@ jobs:
           files: Up*.json
           prerelease: true
   build2:
-    name: 'Buid arm64 no-root'
-    if: github.repository == 'Zenlua/AT-YT' && github.ref == 'refs/heads/Vip'
+    name: 'Buid arm no-root'
+    if: github.repository == 'tuthanika/AT-YT' && github.ref == 'refs/heads/Vip'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -62,7 +62,7 @@ jobs:
         run: |
           # kakathic
           if [ -z "$VERSION" ];then
-          DEVICE='arm64-v8a'
+          DEVICE='armeabi-v7a'
           DEV='Stable'
           VERSION='Autu'
           TYPE='false'
@@ -77,8 +77,8 @@ jobs:
           files: Up/*
           body_path: Log.txt
   build3:
-    name: 'Buid arm64 amoled root'
-    if: github.repository == 'Zenlua/AT-YT' && github.ref == 'refs/heads/Vip'
+    name: 'Buid arm amoled root'
+    if: github.repository == 'tuthanika/AT-YT' && github.ref == 'refs/heads/Vip'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -91,7 +91,7 @@ jobs:
         run: |
           # kakathic
           if [ -z "$VERSION" ];then
-          DEVICE='arm64-v8a'
+          DEVICE='armeabi-v7a'
           DEV='Stable'
           VERSION='Autu'
           TYPE='true'
@@ -114,8 +114,8 @@ jobs:
           files: Up*.json
           prerelease: true
   build4:
-    name: 'Buid arm64 amoled no-root'
-    if: github.repository == 'Zenlua/AT-YT' && github.ref == 'refs/heads/Vip'
+    name: 'Buid arm amoled no-root'
+    if: github.repository == 'tuthanika/AT-YT' && github.ref == 'refs/heads/Vip'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -128,7 +128,7 @@ jobs:
         run: |
           # kakathic
           if [ -z "$VERSION" ];then
-          DEVICE='arm64-v8a'
+          DEVICE='armeabi-v7a'
           DEV='Stable'
           VERSION='Autu'
           TYPE='false'
