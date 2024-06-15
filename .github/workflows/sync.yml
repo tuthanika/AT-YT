@@ -22,7 +22,7 @@ jobs:
         run: |
           set +x
           git remote add -f upstream "https://github.com/Zelooooo/AT-YT" &&
-         git remote -v &&
+          git remote -v &&
           git branch --all &&
           git config --list &&
           git checkout master
