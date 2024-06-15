@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: Vip            # set the branch to merge to
+          ref: Vip             # set the branch to merge to
           fetch-depth: 0
       - name: Setup committer
         run: |
@@ -21,26 +21,26 @@ jobs:
       - name: Merge Upstream
         run: |
           set +x
-          git remote add -f upstream "https://github.com/Zelooooo/AT-YT" &&
+          git remote add -f upstream "https://github.com/anasty17/mirror-leech-telegram-bot" &&
           git remote -v &&
           git branch --all &&
           git config --list &&
-          git checkout master
+          git checkout Vip
           echo "Upstream log: "
-          git log --graph --oneline upstream/master | head -n 30
+          git log --graph --oneline upstream/Vip | head -n 30
           echo "Our log: "
-          git log --graph --oneline master | head -n 10
-          echo "Merge fork point: $(git merge-base --fork-point master upstream/master)"
-          git merge upstream/master -m "AutoMerge-$(date '+%Y%m%d-%H%M%S')"
+          git log --graph --oneline Vip | head -n 10
+          echo "Merge fork point: $(git merge-base --fork-point Vip upstream/Vip)"
+          git merge upstream/Vip -m "AutoMerge-$(date '+%Y%m%d-%H%M%S')"
           git merge --abort || true;
           echo "After Rebase:"
-          git log --graph --oneline master | head -n 30
-          echo "Re-tagging master!"
-          git checkout $(git rev-parse HEAD); git branch -f master HEAD; git checkout master
+          git log --graph --oneline Vip | head -n 30
+          echo "Re-tagging Vip!"
+          git checkout $(git rev-parse HEAD); git branch -f Vip HEAD; git checkout Vip
       #- name: Prepare to push  
       #  run: git branch -f Vip
       - name: Push changes
-        run: git push https://${{ github.token }}@github.com/tuthanika/YT-AT.git
+        run: git push https://${{ github.token }}@github.com/tuthanika/ATP_Rclone_Goc_Mod.git
       - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
