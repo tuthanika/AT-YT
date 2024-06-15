@@ -22,21 +22,21 @@ jobs:
         run: |
           set +x
           git remote add -f upstream "https://github.com/Zelooooo/AT-YT" &&
-          git remote -v &&
+         git remote -v &&
           git branch --all &&
           git config --list &&
-          git checkout Vip
+          git checkout master
           echo "Upstream log: "
-          git log --graph --oneline upstream/Vip | head -n 30
+          git log --graph --oneline upstream/master | head -n 30
           echo "Our log: "
-          git log --graph --oneline Vip | head -n 10
-          echo "Merge fork point: $(git merge-base --fork-point Vip upstream/Vip)"
-          git merge upstream/Vip -m "AutoMerge-$(date '+%Y%m%d-%H%M%S')"
+          git log --graph --oneline master | head -n 10
+          echo "Merge fork point: $(git merge-base --fork-point master upstream/master)"
+          git merge upstream/master -m "AutoMerge-$(date '+%Y%m%d-%H%M%S')"
           git merge --abort || true;
           echo "After Rebase:"
-          git log --graph --oneline Vip | head -n 30
-          echo "Re-tagging Vip!"
-          git checkout $(git rev-parse HEAD); git branch -f Vip HEAD; git checkout Vip
+          git log --graph --oneline master | head -n 30
+          echo "Re-tagging master!"
+          git checkout $(git rev-parse HEAD); git branch -f master HEAD; git checkout master
       #- name: Prepare to push  
       #  run: git branch -f Vip
       - name: Push changes
